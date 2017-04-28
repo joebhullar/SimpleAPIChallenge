@@ -29,25 +29,22 @@ console.log(arrItems[2]["soldInStores"][1]["price"]);
 			return avgPrice.toFixed(2) ;
 		}
 
-
+//$('#load-more-btn').click(function(){ // My Code Does NOT Work when put inside a function.. don't know why
+	arrItems=DataSource.prototype.getNextPage();
 	var table ='';
 	var rows = 3;// THIS IS THE DATASTEPSIZE
-	{	
-		//table += '<tr>';
 			for (var r=0; r < rows; r++)
 			{
 			    table += '<tr>';
-
-			
-				table += '<td>' + arrItems[r]["id"] +'</td>';
-				table += '<td>' + arrItems[r]["name"] +'</td>';
-				table += '<td>' + arrItems[r]["colour"] +'</td>';
-				table += '<td>' + avgPriceCalculator(arrItems, r) +'</td>';
-				
+					table += '<td>' + arrItems[r]["id"] +'</td>';
+					table += '<td>' + arrItems[r]["name"] +'</td>';
+					table += '<td>' + arrItems[r]["colour"] +'</td>';
+					table += '<td>' + avgPriceCalculator(arrItems, r) +'</td>';
 				table += '</tr>';
 			}
-		//table += '</tr>';
-	}
+
+		//})
+	
 
 	
 	var div = document.getElementById('results-container');
