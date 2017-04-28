@@ -17,7 +17,29 @@ console.log(arrItems[0]["id"]);
 console.log(arrItems[1]["soldInStores"].length);
 console.log(arrItems[2]["soldInStores"][1]["price"]);
 
-//arrItems=#JOE
+ 							//arrItems=#JOE
+
+	var table ='';
+	var rows = 3;
+	var cols = 3;
+	{
+		table += '<tr>';
+			//for (var c=0; c <= cols; c++)
+			{
+				table += '<td>' + arrItems[0]["id"] +'</td>';
+				table += '<td>' + arrItems[0]["name"] +'</td>';
+				table += '<td>' + arrItems[0]["colour"] +'</td>';
+				table += '<td>' + arrItems[0]["soldInStores"][0]["price"] +'</td>';
+				
+					}
+		table += '</tr>';
+	}
+	var div = document.getElementById('results-container');
+	div.innerHTML = div.innerHTML + '<table>'+ table+'</table>';
+	
+	
+
+document.getElementById("demo").innerHTML = arrItems[0]["id"];
 
 var items=[];
 
