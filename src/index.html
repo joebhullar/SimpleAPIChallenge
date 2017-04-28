@@ -7,6 +7,12 @@
   </head>
 
   <body>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	</script>
+  
+
+
+
     <div class="container">
       <label for="colour-dropdown">Filter By:</label>
       <select id="colour-dropdown" name="colour">
@@ -19,9 +25,21 @@
       </select>
     </div>
 
+
     <div id="results-container" class="container">
-      <!-- output goes here -->
+      <table>
+      <thead>
+      	 <tr>
+    		<th>Id</th>
+    		<th>Name</th>
+    		<th>Color</th>
+    		<th>Average Price</th>
+     	 </tr>
+      </thead>
+      </table>
+
     </div>
+
 
     <div class="container">
       <button id="load-more-btn" type="button">Load More</button>
