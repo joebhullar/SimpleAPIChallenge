@@ -17,35 +17,36 @@ console.log(arrItems[0]["id"]);
 console.log(arrItems[1]["soldInStores"].length);
 console.log(arrItems[2]["soldInStores"][1]["price"]);
 
- 							//arrItems=#JOE
-
-	var table ='';
-	var rows = 3;
-	var cols = 3;
-	{ 
-	
-	  function avgPriceCalculator(arrItems){ 
+	  function avgPriceCalculator(arrItems, r){ 
 			var tempSumPrice = 0;
 			var avgPrice=0;
-			var numberOfStores=arrItems[0]["soldInStores"].length;
+			var numberOfStores=arrItems[r]["soldInStores"].length;
 			for (var inStore=0; inStore<numberOfStores; inStore++)
 		       {  
-		       		tempSumPrice=tempSumPrice+ arrItems[0]["soldInStores"][inStore]["price"]; 
+		       		tempSumPrice=tempSumPrice+ arrItems[r]["soldInStores"][inStore]["price"]; 
 		       }
 		    avgPrice=tempSumPrice/numberOfStores;
-		    console.log("THIS IS THE AVG PRICE:"+tempSumPrice);
 			return avgPrice.toFixed(2) ;
 		}
-		
-		table += '<tr>';
-			//for (var c=0; c <= cols; c++)
+
+
+	var table ='';
+	var rows = 3;// THIS IS THE DATASTEPSIZE
+	{	
+		//table += '<tr>';
+			for (var r=0; r < rows; r++)
 			{
-				table += '<td>' + arrItems[0]["id"] +'</td>';
-				table += '<td>' + arrItems[0]["name"] +'</td>';
-				table += '<td>' + arrItems[0]["colour"] +'</td>';
-				table += '<td>' + avgPriceCalculator(arrItems) +'</td>';
+			    table += '<tr>';
+
+			
+				table += '<td>' + arrItems[r]["id"] +'</td>';
+				table += '<td>' + arrItems[r]["name"] +'</td>';
+				table += '<td>' + arrItems[r]["colour"] +'</td>';
+				table += '<td>' + avgPriceCalculator(arrItems, r) +'</td>';
+				
+				table += '</tr>';
 			}
-		table += '</tr>';
+		//table += '</tr>';
 	}
 
 	
