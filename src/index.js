@@ -22,18 +22,33 @@ console.log(arrItems[2]["soldInStores"][1]["price"]);
 	var table ='';
 	var rows = 3;
 	var cols = 3;
-	{
+	{ 
+	
+	  function avgPriceCalculator(arrItems){ 
+			var tempSumPrice = 0;
+			var avgPrice=0;
+			var numberOfStores=arrItems[0]["soldInStores"].length;
+			for (var inStore=0; inStore<numberOfStores; inStore++)
+		       {  
+		       		tempSumPrice=tempSumPrice+ arrItems[0]["soldInStores"][inStore]["price"]; 
+		       }
+		    avgPrice=tempSumPrice/numberOfStores;
+		    console.log("THIS IS THE AVG PRICE:"+tempSumPrice);
+			return avgPrice.toFixed(2) ;
+		}
+		
 		table += '<tr>';
 			//for (var c=0; c <= cols; c++)
 			{
 				table += '<td>' + arrItems[0]["id"] +'</td>';
 				table += '<td>' + arrItems[0]["name"] +'</td>';
 				table += '<td>' + arrItems[0]["colour"] +'</td>';
-				table += '<td>' + arrItems[0]["soldInStores"][0]["price"] +'</td>';
-				
-					}
+				table += '<td>' + avgPriceCalculator(arrItems) +'</td>';
+			}
 		table += '</tr>';
 	}
+
+	
 	var div = document.getElementById('results-container');
 	div.innerHTML = div.innerHTML + '<table>'+ table+'</table>';
 	
