@@ -1,0 +1,9 @@
+
+
+CHALLENGE 2:
+Is data that you have been collecting from the API (by calling getNextPage) being returned in a format that is optimal for completing Challenge 1? If so why? If not why?
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The data I have been collecting from the API via calling ‘getNextPage’ is being returned in JSON Format. This is an optimal format because the data is in JSON and is being stored inside of a Javascript array ‘arrItems’ on line 20 of index.js.
+
+

@@ -1,19 +1,32 @@
 // need to call constructor DataSource() in order to make sure that we have an array of objects 
- DataSource();
+ 
+DataSource();  //Constructor Call.
 
 var arrItems= [];
 
-	  function avgPriceCalculator(arrItems, r){ 
-			var tempSumPrice = 0;
-			var avgPrice=0;
-			var numberOfStores=arrItems[r]["soldInStores"].length;
-			for (var inStore=0; inStore<numberOfStores; inStore++)
-		       {  
-		       		tempSumPrice=tempSumPrice+ arrItems[r]["soldInStores"][inStore]["price"]; 
+function avgPriceCalculator(arrItems, r){ 
+    var tempSumPrice = 0;
+    var avgPrice=0;
+    var numberOfStores=arrItems[r]["soldInStores"].length;
+    for (var inStore=0; inStore<numberOfStores; inStore++)
+        {  
+            tempSumPrice=tempSumPrice+ arrItems[r]["soldInStores"][inStore]["price"]; 
 		       }
 		    avgPrice=tempSumPrice/numberOfStores;
 			return avgPrice.toFixed(2) ;
-		}
+}
+
+function dropdownMenuFilterFunction(){
+        $('tr').show();
+        var e = document.getElementById("colour-dropdown");
+        var selectedColour = e.options[e.selectedIndex].value;
+        if (selectedColour != "ALL")
+            {
+                $('tr').not('tr.'+selectedColour).hide();
+                $('#HeadRow').show();
+            }
+}
+
 
 $('#load-more-btn').click(function(event) {
 	arrItems=DataSource.prototype.getNextPage();
@@ -35,16 +48,6 @@ $('#load-more-btn').click(function(event) {
 	
 });
 
-function dropdownMenuFilterFunction(){
-        $('tr').show();
-        var e = document.getElementById("colour-dropdown");
-        var selectedColour = e.options[e.selectedIndex].value;
-        if (selectedColour != "ALL")
-            {
-                $('tr').not('tr.'+selectedColour).hide();
-                $('#HeadRow').show();
-            }
-}
 
 $(document).ready(function() {
     $( "#colour-dropdown" ).change(function() {
@@ -53,6 +56,3 @@ $(document).ready(function() {
     
 });
 var rows = $("table#results-container tr:not(:first-child)");
-
-
-
