@@ -39,12 +39,12 @@ $('#load-more-btn').click(function(event) {
 			}
 
 	var div = document.getElementById('results-container');
-	div.innerHTML = div.innerHTML + '<table>'+ table+'</table>';	
+	div.innerHTML = div.innerHTML + '<table>'+ table+'</table>';
+    dropdownMenuFilterFunction();
 	
 });
 
-$(document).ready(function() {
-    $( "#colour-dropdown" ).change(function() {
+function dropdownMenuFilterFunction(){
         $('tr').show();
         var e = document.getElementById("colour-dropdown");
         var selectedColour = e.options[e.selectedIndex].value;
@@ -53,6 +53,11 @@ $(document).ready(function() {
                 $('tr').not('tr.'+selectedColour).hide();
                 $('#HeadRow').show();
             }
+}
+
+$(document).ready(function() {
+    $( "#colour-dropdown" ).change(function() {
+            dropdownMenuFilterFunction();
     });
     
 });
