@@ -63,18 +63,5 @@ $(document).ready(function() {
 });
 var rows = $("table#results-container tr:not(:first-child)");
 
-$("#colour-dropdown").on("change", function(){
-	var selected = this.value;
-	if (selected != "ALL"){
-		rows.filter("[position="+selected+"]").show();
-		rows.not("[position="+selected+"]").hide();
-		var visibleRows= rows.filter("[position="+selected+"]");
-	}
-	else {
-	rows.show();
-	}
-
-});
-
 
 
