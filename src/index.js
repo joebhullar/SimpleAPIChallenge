@@ -1,14 +1,5 @@
 // need to call constructor DataSource() in order to make sure that we have an array of objects 
-		//CODE BELOW produces array of objects!
  DataSource();
-// console.log("After Constructor Is Called!!");
-// 
-// console.log(DataSource.prototype.getNextPage());
-// console.log(DataSource.prototype.getNextPage());
-// console.log(DataSource.prototype.getNextPage());
-// console.log(DataSource.prototype.getNextPage());
-// console.log("Nothing should print  after this");
-// console.log(DataSource.prototype.getNextPage());
 
 var arrItems= [];
 
