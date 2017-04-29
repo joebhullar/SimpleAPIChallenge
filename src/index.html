@@ -14,7 +14,7 @@
     <div class="container">
       <label for="colour-dropdown">Filter By:</label>
       <select id="colour-dropdown" name="colour">
-        <option selected value> -- Colour -- </option>
+        <option selected value="ALL"> -- Colour -- </option>
         <option value="orange">Orange</option>
         <option value="yellow">Yellow</option>
         <option value="red">Red</option>
@@ -27,7 +27,7 @@
     <div id="results-container" class="container">
       <table>
       <thead>
-      	 <tr>
+      	 <tr id="HeadRow">
     		<th>Id</th>
     		<th>Name</th>
     		<th>Color</th>
@@ -43,6 +43,12 @@
       <button id="load-more-btn" type="button" >Load More</button>
     </div>
 
+      
+    <div class="container">
+      <button id="test-btn" type="button" >TESTING BUTTON</button>
+    </div>
+      
+      
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./data.js"></script>
     <script src="./index.js"></script>

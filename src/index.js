@@ -11,11 +11,6 @@
 // console.log(DataSource.prototype.getNextPage());
 
 var arrItems= [];
-arrItems=DataSource.prototype.getNextPage();
-console.log("Below are ONLY THREE objects from the array!");
-console.log(arrItems[0]["id"]);
-console.log(arrItems[1]["soldInStores"].length);
-console.log(arrItems[2]["soldInStores"][1]["price"]);
 
 	  function avgPriceCalculator(arrItems, r){ 
 			var tempSumPrice = 0;
@@ -32,10 +27,10 @@ console.log(arrItems[2]["soldInStores"][1]["price"]);
 $('#load-more-btn').click(function(event) {
 	arrItems=DataSource.prototype.getNextPage();
 	var table ='';
-	var rows = 3;// THIS IS THE DATASTEPSIZE
-			for (var r=0; r < rows; r++)
+	var rowDataStepSize = 3;   // THIS IS THE DATASTEPSIZE
+			for (var r=0; r < rowDataStepSize; r++)
 			{
-			    table += '<tr>';
+			    table += '<tr class="'+arrItems[r]["colour"]+'">';
 					table += '<td>' + arrItems[r]["id"] +'</td>';
 					table += '<td>' + arrItems[r]["name"] +'</td>';
 					table += '<td>' + arrItems[r]["colour"] +'</td>';
@@ -47,5 +42,34 @@ $('#load-more-btn').click(function(event) {
 	div.innerHTML = div.innerHTML + '<table>'+ table+'</table>';	
 	
 });
+
+$(document).ready(function() {
+    $( "#colour-dropdown" ).change(function() {
+        $('tr').show();
+        var e = document.getElementById("colour-dropdown");
+        var selectedColour = e.options[e.selectedIndex].value;
+        if (selectedColour != "ALL")
+            {
+                $('tr').not('tr.'+selectedColour).hide();
+                $('#HeadRow').show();
+            }
+    });
+    
+});
+var rows = $("table#results-container tr:not(:first-child)");
+
+$("#colour-dropdown").on("change", function(){
+	var selected = this.value;
+	if (selected != "ALL"){
+		rows.filter("[position="+selected+"]").show();
+		rows.not("[position="+selected+"]").hide();
+		var visibleRows= rows.filter("[position="+selected+"]");
+	}
+	else {
+	rows.show();
+	}
+
+});
+
 
 
